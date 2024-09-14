@@ -19,12 +19,22 @@
     <script>
         $(document).ready(function () {
             $.getJSON("test1.json", function (json) {
-                $('#p_id').html(json.instructor.first_name + "<br>" + "work at " + json.instructor.last_name + "<br>" + "city is " + json.instructor['@city']);
-            });
 
+
+
+            var courseHTML = ""
+            for (i in json.instructor) {
+                courseHTML += "<br>" + json.instructor[i].first_name + " - " + json.instructor[i].last_name
+
+            }
+
+            $('#p_id').html(courseHTML)
         });
 
-     </script>
+    </script>
+
+
+
     <h1> TEST - MileStone 1</h1>
     <p id="p_id"> JSON src = <a href="test1.json">Test1.json</a></p>
     

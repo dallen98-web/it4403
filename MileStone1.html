@@ -8,32 +8,31 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <script>
-
-        var json_example = { "name": "David Allen", "work": "KSU", "id": 1234 }
-        
-
-        $(document).ready(function(){
-            $('#p_name').append(json_example.name)
-            $('#p_work').append(json_example.work)
-            $('#p_id').append(json_example.id)
-        })
-
-    </script>
+    
 </head>
 
 <body>
 
     <h1>MileStone 1</h1>
 
-    <h2>Read JSON</h2>
+    <script>
+        $(document).ready(function () {
+            $.getJSON("google-books-search.json", function (json) {
+                $('#p_id').html(json.items.title + "<br> " + "Subtitle: " + json.items.subtitle)
+            })
+                var booksHTML = ""
+                for (i in googlebooks.items) {
+                    booksHTML += "<br>" + googlebooks[i].title + " - " + googlebooks[i].subtitle
 
-    <p id="p_name"></p>
-    <p id="p_work"></p>
+                }
+
+                $('#p_id').html(booksHTML)
+            });
+
+    </script>
+    
     <p id="p_id"></p>
-
-
-    <hr class="one" />
+    
 
 
 </body>
