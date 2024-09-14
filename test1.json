@@ -1,8 +1,8 @@
 {
   "instructor": {
 
-    "first name": "David",
-    "last name": "Allen",
+    "first_name": "David",
+    "last_name": "Allen",
     "@city": "Atl",
     "course": [
       {
