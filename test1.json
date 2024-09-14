@@ -1,0 +1,23 @@
+{
+  "instructor": {
+
+    "first name": "David",
+    "last name": "Allen",
+    "@city": "Atl",
+    "course": [
+      {
+        "title": "IT4403",
+        "enrollment": 40
+      },
+      {
+        "title": "IT3003",
+        "enrollment": 30
+      }
+    ]
+  }
+}
+
+
+  
+
+
