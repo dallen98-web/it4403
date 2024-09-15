@@ -29,7 +29,7 @@
 
             for (i in json)
             {
-                courseHTML += "<br>" + json[i].FirstName + " - " + json[i].LastName + " - " + json[i].Title;
+                courseHTML += "<br>" + "First Name: " + json[i].FirstName + "<br>" + "Last Name:  " + json[i].LastName + "<br>" + "Title:  " + json[i].Title + "<br>" + "<br>";
             }
             $("#Course").html(courseHTML);
             }); 
