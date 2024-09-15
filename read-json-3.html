@@ -21,13 +21,13 @@
 
 <script>
     $(function () {
-        $.getJSON("google-books-search.json", function (json) //json is the parameter name to hold the response data and it will be converted to a JS object by the function
+        $.getJSON("openlibrary-search.json", function (json) //json is the parameter name to hold the response data and it will be converted to a JS object by the function
         {
 
             var courseHTML = "";
 
-            for (i in json) {
-                courseHTML += "<br>" + "Title: " + json[i].title + "<br>" + "Authors:  " + json[i].subtitle + "<br>" + "Publisher:  " + json[i].publisher + "<br>" + "<br>";
+            for (i in json.docs) {
+                courseHTML += "<br>" + "Title: " + json.docs[i].title + "<br>" + "Title Suggest:  " + json.docs[i].title_suggest + "<br>" + "Publisher:  " + json.docs[i].publisher + "<br>" + "<br>";
             }
             $("#Course").html(courseHTML);
         });
