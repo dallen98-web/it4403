@@ -17,14 +17,14 @@
 
     <script>
         $(document).ready(function () {
-            $.getJSON("openlibrary-search.json", function (json) {
-                $('#p_id').html(json.title + "<br> " + "Authors Name: " + json.author_name);
+            $.getJSON("google-books-book.json", function (json) {
+                $('#p_id').html("Title: " + json.title + "<br> " + "Authors Name: " + json.authors + "<br> " + "Publisher: " + json.Publisher);
             });
         });
 
     </script>
     
-    <p id="p_id"> JSON src = <a href="openlibrary-search.json"> Test JSon File</a></p>
+    <p id="p_id"></p>
     
 
 
