@@ -43,6 +43,23 @@
         });
     })
 </script>
-    
+<hr class="one" />
+<script>
+    $(function () {
+        $.getJSON("openlibrary-search.json", function (json) //json is the parameter name to hold the response data and it will be converted to a JS object by the function
+        {
+
+            var courseHTML2 = "";
+
+            for (i in json.docs) {
+
+                courseHTML2 += "<br>" + "Author: " + json.docs[i].author_name + "<br>" + "Title: " + json.docs[i].title + "<br>" + "Title Suggest:  " + json.docs[i].title_suggest + "<br>" + "Publisher:  " + json.docs[i].publisher + "<br>" + "<br>";
+            }
+
+            $("#Course").html(courseHTML2);
+        });
+    })
+</script>
+
 </body>
 </html>
