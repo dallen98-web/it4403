@@ -28,7 +28,7 @@
 
             for (i in json)
             {
-                courseHTML+= "<br>"+ json[i].FirstName+ " - " +json[i].LastName+ " - " +json[i].Title;
+                courseHTML+= "<br>"+ "First Name: "+json[i].FirstName+ "Last Name:  " +json[i].LastName+ "Title:  " +json[i].Title;
             }
             $("#Course").html(courseHTML);
             }); 
