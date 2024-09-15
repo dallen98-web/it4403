@@ -2,8 +2,15 @@
 
 <html>
 <head>
-	<title>PHP simple JSON JavaScript</title>
+    <title>PHP simple JSON JavaScript</title>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <style>
+        .myDiv {
+            border: 5px outset red;
+            background-color: lightblue;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,10 +33,12 @@
         {
 
             var courseHTML = "";
-
+            <div class="myDiv">
             for (i in json.docs) {
-                courseHTML += "<br>" + "Title: " + json.docs[i].title + "<br>" + "Title Suggest:  " + json.docs[i].title_suggest + "<br>" + "Publisher:  " + json.docs[i].publisher + "<br>" + "<br>";
+                
+                courseHTML += "<br>" + "Title: " + json.docs[i].title + "<br>" + "Title Suggest:  " + json.docs[i].title_suggest + "<br>" + "Publisher:  " + json.docs[i].publisher + "<br>" + "<br>"
             }
+            </div>
             $("#Course").html(courseHTML);
         });
     })
