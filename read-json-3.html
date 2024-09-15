@@ -26,7 +26,7 @@
 
             var courseHTML = "";
 
-            for (i in json.items) {
+            for (i in json) {
                 courseHTML += "<br>" + "Title: " + json[i].title + "<br>" + "Authors:  " + json[i].subtitle + "<br>" + "Publisher:  " + json[i].publisher + "<br>" + "<br>";
             }
             $("#Course").html(courseHTML);
