@@ -30,7 +30,7 @@
 
                 for (i in json.docs) {
 
-                    courseHTML += "<br>" + "Author: " + json.docs[i].author_name + "<br>" + "Title: " + json.docs[i].title + "<br>" + "Title Suggest:  " + json.docs[i].title_suggest + "<br>" + "Publisher:  " + json.docs[i].publisher + "<br>" + "<br>";
+                    courseHTML += "<br>" + <b>"Author: "<b> + json.docs[i].author_name + "<br>" + "Title: " + json.docs[i].title + "<br>" + "Title Suggest:  " + json.docs[i].title_suggest + "<br>" + "Publisher:  " + json.docs[i].publisher + "<br>" + "<br>";
                 }
 
                 $("#Course").html(courseHTML);
