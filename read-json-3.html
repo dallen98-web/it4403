@@ -14,7 +14,7 @@
     <li>Using jQuery/JS to process JSON</li>
 </ul>
 
-<p>The JSON file can be viewed here: <a href="instructor2b.json" target="_blank">instructor2b.json</a></p>
+<p>The JSON file can be viewed here: <a href="instructor3.json" target="_blank">instructor3.json</a></p>
 <h2>Reading results</h2>
 <div id="Instructor"></div>
 <div id="Course"></div>
@@ -23,12 +23,13 @@
     $(function(){
         $.getJSON("instructor2b.json", function (json) //json is the parameter name to hold the response data and it will be converted to a JS object by the function
             {
-                
+                $("#Instructor").html(json.FirstName+" - "+json.Title + " - " + json["@HireDate"]); //@HireDate has a special charater @
+
             var courseHTML="";
 
             for (i in json)
             {
-                courseHTML+= "<br>"+ "First Name: " + json[i].FirstName+ "<br>"+ " Last Name: " +json[i].LastName+ "<br>"+ " Title :" + json[i].Title;
+                courseHTML+= "<br>"+ json[i].Title+ " - " +json[i].Enrollment;
             }
             $("#Course").html(courseHTML);
             }); 
