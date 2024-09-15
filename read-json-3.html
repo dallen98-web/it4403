@@ -26,6 +26,8 @@
             $.getJSON("openlibrary-search.json", function (json) //json is the parameter name to hold the response data and it will be converted to a JS object by the function
             {
 
+                $("#Instructor").html(json.docs.author_name+" - "+json.docs[i].title + " - " + json.docs[i].publisher); 
+                
                 var courseHTML = "";
 
                 for (i in json.docs) {
