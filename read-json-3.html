@@ -23,8 +23,7 @@
     $(function(){
         $.getJSON("instructor3.json", function (json) //json is the parameter name to hold the response data and it will be converted to a JS object by the function
             {
-                //$("#Instructor").html(json.Instructor.FirstName+" - "+json.Instructor.Title + " - " + json.Instructor["@HireDate"]); //@HireDate has a special charater @
-
+                
             var courseHTML="";
 
             for (i in json.Instructor.Course)
