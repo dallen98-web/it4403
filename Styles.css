@@ -1,17 +1,20 @@
-﻿body {
-    background-color: lightyellow;
+﻿/*This body color is set for all pages*/
+body {
+    background-color: hsl(198, 100%, 95%);
 }
 
+/*This is the color and weight for all h1 tags*/
 h1 {
     color: black;
     font-weight: bold;
 }
 
-hr.one {
-    border: 1px solid black;
-    border-radius: 1px;
+/*this is a horizontal line class formated to add to pages*/
+hr.one{
+    border: 1px solid blue;
 }
 
+/*this is set to format the table*/
 table,th,td
 {
     border:1px solid black;
@@ -24,4 +27,10 @@ table,th,td
 {
     display: inline
 
+}
+
+/*This is the class that is used for the header*/
+.myheader {
+    height: 25%;
+    background-color: #87CEFA;
 }
