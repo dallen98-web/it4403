@@ -18,16 +18,9 @@
     <script>
         $(document).ready(function () {
             $.getJSON("openlibrary-search.json", function (json) {
-                $('#p_id').html(json.docs.title + "<br> " + "Subtitle: " + json.docs.author_name)
-            })
-            var booksHTML = ""
-            for (i in json.docs) {
-                booksHTML += "<br>" + json[i].title + " - " + json[i].author_name
-
-                }
-
-                $('#p_id').html(booksHTML)
+                $('#p_id').html(json.docs.title + "<br> " + "Authors Name: " + json.docs.author_name);
             });
+        });
 
     </script>
     
