@@ -21,14 +21,14 @@
 
 <script>
     $(function(){
-        $.getJSON("instructor3.json", function (json) //json is the parameter name to hold the response data and it will be converted to a JS object by the function
+        $.getJSON("instructor2b.json", function (json) //json is the parameter name to hold the response data and it will be converted to a JS object by the function
             {
                 
             var courseHTML="";
 
-            for (i in json.Instructor.Course)
+            for (i in json.Course)
             {
-                courseHTML+="<br>"+json.Instructor.Course[i].Title+ " - " +json.Instructor.Course[i].Enrollment;
+                courseHTML += "<br>" + json[i].FirstName + "br>" + json[i].LastName + "<br>" + json[i].Title;
             }
             $("#Course").html(courseHTML);
             }); 
