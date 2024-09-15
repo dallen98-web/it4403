@@ -27,7 +27,7 @@
             var courseHTML = "";
 
             for (i in json.items) {
-                courseHTML += "<br>" + "Title: " + json.items[i].title + "<br>" + "Authors:  " + json.items[i].subtitle + "<br>" + "Publisher:  " + json.items[i].publisher + "<br>" + "<br>";
+                courseHTML += "<br>" + "Title: " + json[i].title + "<br>" + "Authors:  " + json[i].subtitle + "<br>" + "Publisher:  " + json[i].publisher + "<br>" + "<br>";
             }
             $("#Course").html(courseHTML);
         });
