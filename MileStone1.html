@@ -18,7 +18,7 @@
     <script>
         $(document).ready(function () {
             $.getJSON("openlibrary-search.json", function (json) {
-                $('#p_id').html(json.docs.title + "<br> " + "Authors Name: " + json.docs.author_name);
+                $('#p_id').html(json.title + "<br> " + "Authors Name: " + json.author_name);
             });
         });
 
