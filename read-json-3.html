@@ -46,14 +46,14 @@
 <hr class="one" />
 <script>
     $(function () {
-        $.getJSON("openlibrary-search.json", function (json) //json is the parameter name to hold the response data and it will be converted to a JS object by the function
+        $.getJSON("google-books-search.json", function (json2) //json is the parameter name to hold the response data and it will be converted to a JS object by the function
         {
 
             var courseHTML2 = "";
 
-            for (i in json.docs) {
+            for (i in json2.items) {
 
-                courseHTML2 += "<br>" + "Author: " + json.docs[i].author_name + "<br>" + "Title: " + json.docs[i].title + "<br>" + "Title Suggest:  " + json.docs[i].title_suggest + "<br>" + "Publisher:  " + json.docs[i].publisher + "<br>" + "<br>";
+                courseHTML2 += "<br>" + "Author: " + json2.items[i].authors + "<br>" + "Title: " + json2.items[i].title + "<br>" + "SubTitle:  " + json2.items[i].subtitle + "<br>" + "Publisher:  " + json2.items[i].publisher + "<br>" + "<br>";
             }
 
             $("#Course").html(courseHTML2);
