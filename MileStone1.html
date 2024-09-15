@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 
 <html lang="en" >
 <head>
@@ -16,12 +17,12 @@
 
     <script>
         $(document).ready(function () {
-            $.getJSON("google-books-search.json", function (json) {
-                $('#p_id').html(json.items.title + "<br> " + "Subtitle: " + json.items.subtitle)
+            $.getJSON("openlibrary-search.json", function (json) {
+                $('#p_id').html(json.docs.title + "<br> " + "Subtitle: " + json.docs.author_name)
             })
-                var booksHTML = ""
-                for (i in googlebooks.items) {
-                    booksHTML += "<br>" + googlebooks[i].title + " - " + googlebooks[i].subtitle
+            var booksHTML = ""
+            for (i in json.docs) {
+                booksHTML += "<br>" + json[i].title + " - " + json[i].author_name
 
                 }
 
