@@ -23,12 +23,12 @@
     $(function(){
         $.getJSON("instructor2b.json", function (json) //json is the parameter name to hold the response data and it will be converted to a JS object by the function
             {
-               
+                
             var courseHTML="";
 
             for (i in json)
             {
-                courseHTML += "<br>" + "First Name: " + json[i].FirstName + "<br>" + "Last Name:  " + json[i].LastName + "<br>" + "Title:  " + json[i].Title + "<br>" + "<br>";
+                courseHTML += "<br>" + json[i].FirstName + " - " + json[i].LastName + " - " + json[i].Title;
             }
             $("#Course").html(courseHTML);
             }); 

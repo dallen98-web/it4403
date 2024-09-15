@@ -20,18 +20,17 @@
 <div id="Course"></div>
 
 <script>
-    $(function(){
+    $(function () {
         $.getJSON("google-books-search.json", function (json) //json is the parameter name to hold the response data and it will be converted to a JS object by the function
-            {
-                
-            var courseHTML="";
+        {
 
-            for (i in json.items)
-            {
-                courseHTML += "<br>" + "Title: " + json.items[i].title + "<br>" + "Authors:  " + json.items[i].authors + "<br>" + "Publisher:  " + json.items[i].publisher + "<br>" + "<br>";
+            var courseHTML = "";
+
+            for (i in json.items) {
+                courseHTML += "<br>" + "Title: " + json.items[i].title + "<br>" + "Authors:  " + json.items[i].subtitle + "<br>" + "Publisher:  " + json.items[i].publisher + "<br>" + "<br>";
             }
             $("#Course").html(courseHTML);
-            }); 
+        });
     })
 </script>
 
