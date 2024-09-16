@@ -24,9 +24,7 @@
     <script>
         $(function () {
             $.getJSON("openlibrary-search.json", function (json) 
-            {
-                
-                $("#Instructor").html("Author: " + json.docs.author_name + "Title: " + json.docs.Title + json.docs[i].title_suggest); 
+            {              
 
                 var courseHTML = "";
 
