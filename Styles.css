@@ -5,8 +5,9 @@ body {
 
 /*This is the color and weight for all h1 tags*/
 h1 {
-    color: black;
+    color: whitesmoke;
     font-weight: bold;
+    text-align: center;
 }
 
 /*this is a horizontal line class formated to add to pages*/
@@ -32,5 +33,5 @@ table,th,td
 /*This is the class that is used for the header*/
 .myheader {
     height: 25%;
-    background-color: #87CEFA;
+    background-color: darkcyan;
 }

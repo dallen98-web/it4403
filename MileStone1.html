@@ -2,28 +2,28 @@
 
 <html>
 <head>
-    <title>PHP simple JSON JavaScript</title>
+    <title>MileStone1 - David Allen</title>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 </head>
 
 <body>
 
-    <h1>Read JSON content 3</h1>
-    <ul>
-        <li>Use jQuery getJSON function to get the JSON file from the server (make sure the server serves .json files)</li>
-        <li>Using jQuery/JS to process JSON</li>
-    </ul>
+    <div class="myheader">
+        <br /><br /><br /><br /><h1>Module 1 Webpage </h1>
+    </div>
+    <hr class="one" />
 
+    
     <p>The JSON file can be viewed here: <a href="openlibrary-search.json" target="_blank">openlibrary-search.json</a></p>
     <h2>Open Library Book List</h2>
     <hr class="one" />
     <div id="Instructor"></div>
-    <div id="Course"></div>
+    <div id="Books"></div>
 
     <script>
         $(function () {
-            $.getJSON("openlibrary-search.json", function (json) //json is the parameter name to hold the response data and it will be converted to a JS object by the function
+            $.getJSON("openlibrary-search.json", function (json) 
             {
 
                 var courseHTML = "";
@@ -33,7 +33,7 @@
                     courseHTML += "<br>" + "Author: " + json.docs[i].author_name + "<br>" + "Title: " + json.docs[i].title + "<br>" + "Title Suggest:  " + json.docs[i].title_suggest + "<br>" + "Publisher:  " + json.docs[i].publisher + "<br>" + "<br>";
                 }
 
-                $("#Course").html(courseHTML);
+                $("#Books").html(courseHTML);
             });
         })
     </script>
