@@ -18,14 +18,15 @@
     <p>The JSON file can be viewed here: <a href="openlibrary-search.json" target="_blank">openlibrary-search.json</a></p>
     <h2>Open Library Book List</h2>
     <hr class="one" />
-    <center><div id="SingleBook"></div></center>
+    <center><div id="Instructor"></div></center>
     <center><div id="BookList"></div></center>
 
     <script>
         $(function () {
             $.getJSON("openlibrary-search.json", function (json) 
             {
-                $("#SingleBook").html(json.docs.author_name + " - " + json.docs.title); 
+                
+                $("#Instructor").html("Author: " + json.docs.author_name + "Title: " + json.docs.Title + json.docs[i].title_suggest); 
 
                 var courseHTML = "";
 
