@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>PHP simple JSON JavaScript</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <center><h1>Module 1</h1></center>
+    
+    <p>Use this link to view the JSON Lbrary: <a href="openlibrary-search.json" target="_blank">openlibrary-search.json</a></p>
+    <h2>Open Library Book List</h2>
+    <hr class="one" />
+    <div id="Instructor"></div>
+    <div id="Course"></div>
+
+    <script>
+        $(function () {
+            $.getJSON("openlibrary-search.json", function (json) //json is the parameter name to hold the response data and it will be converted to a JS object by the function
+            {
+
+                var courseHTML = "";
+
+                for (i in json.docs) {
+
+                    courseHTML += "<br>" + "<b>Author: </b>" + json.docs[i].author_name + "<br>" + "<b>Title: </b>" + json.docs[i].title + "<br>" + "<b>Title Suggest:  </b>" + json.docs[i].title_suggest + "<br>" + "<b>Publisher:  </b>" + json.docs[i].publisher + "<br>" + "<br>";
+                }
+
+                $("#Course").html(courseHTML);
+            });
+        })
+    </script>
+
+</body>
+</html>
