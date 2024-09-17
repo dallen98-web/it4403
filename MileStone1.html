@@ -26,18 +26,17 @@
     <script>
         $(document).ready(function () {
             $.getJSON("google-books-book.json", function (json2) {
-                $("#book_id").html(json2.volumeInfo.authors + "- " + json2.volumeInfo.title + " - " + json2.volumeInfo.publisher);
+                $("#book_id").html("<b>Authors </b>" + json2.volumeInfo.authors + <br></br> + "<b> Title: </b> " + <br></br> + json2.volumeInfo.title + <br></br> + "<b> Publisher </b> " + json2.volumeInfo.publisher);
             });
 
         });
     </script>
-
-    <hr class="one" />
+        
     <p id="book_id"></p>
    
     <center><div id="BookList"></div></center>
    
-
+    <hr class="one" />
 
 
     <center><h2>Open Library Book List</h2></center>
