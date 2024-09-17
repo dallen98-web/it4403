@@ -28,6 +28,12 @@
     <center><div id="BookList2"></div></center>
 
     <script>
+        $(document).ready(function () {
+            $.getJSON("google-books-book.json", function (json2) {
+                $("#book_id").html(json2.volumeInfo.authors + "- " + json2.volumeInfo.title + " - " + json2.volumeInfo.publisher);
+            });
+
+        });
         $(function () {
             $.getJSON("openlibrary-search.json", function (json) {
 
