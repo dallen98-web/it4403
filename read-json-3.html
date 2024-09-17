@@ -20,7 +20,7 @@
     <script>
         $(document).ready(function(){
             $.getJSON("google-books-book.json", function (json2){
-                $("#book_id").html(json2.authors + "- " + json2.title + " - " + json2.publisher);
+                $("#book_id").html(json2.volumeInfo.authors + "- " + json2.volumeInfo.title + " - " + json2.volumeInfo.publisher);
             });
 
             });
