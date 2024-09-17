@@ -1,26 +1,28 @@
+
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
-    <title>MileStone1 - David Allen</title>
+    <meta charset="utf-8" />
+    <title>This is my Web page - David Allen</title>
     <link href="Styles.css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 </head>
 
 <body>
+
     <div class="myheader">
-        <br /><br /><br /><h1>Module 1 </h1>
+        <br /><br /><br /><h1>Module1 </h1>
     </div>
+
     <hr class="one" />
-
-
+    
     <center><p>The JSON file can be viewed here: <a href="openlibrary-search.json" target="_blank">openlibrary-search.json</a></p></center>
     <center><h2>Open Library Book List</h2></center>
     <hr class="one" />
     <center><div id="Instructor"></div></center>
     <center><div id="BookList"></div></center>
-    
+
     <script>
         $(function () {
             $.getJSON("openlibrary-search.json", function (json) {

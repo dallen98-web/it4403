@@ -35,3 +35,16 @@ table,th,td
     height: 25%;
     background-color: darkcyan;
 }
+
+#menu {
+    width: 15%;
+    float: left;
+    background: hsl(198, 100%, 95%);
+    margin-left: 2%;
+    margin-right: 5px;
+    text-align: center;
+    height: 70%;
+    flex: 1;
+    height: 600px;
+    border-right: 2px solid blue;
+}	
