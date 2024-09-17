@@ -17,14 +17,15 @@
     </div>
 
     <hr class="one" />
-    
-   
+
+
 
     <center><p>The JSON file can be viewed here: <a href="openlibrary-search.json" target="_blank">openlibrary-search.json</a></p></center>
     <center><h2>Open Library Book List</h2></center>
     <hr class="one" />
     <center><div id="Instructor"></div></center>
     <center><div id="BookList"></div></center>
+    <center><div id="BookList2"></div></center>
 
     <script>
         $(function () {
@@ -38,6 +39,28 @@
                 }
 
                 $("#BookList").html(courseHTML);
+            });
+        })
+    </script>
+
+    <br />
+    <hr class="one" />
+
+    <center><h2>Google Books Serach List</h2></center>
+    <hr class="one" />
+
+    <script>
+        $(function () {
+            $.getJSON("google-books-search.json", function (json2) {
+
+                var courseHTML2 = "";
+
+                for (i in json2.items) {
+
+                    courseHTML += "<br>" + "<b>Authors: </b>" + json.items[i].authors + "<br>" + "<b>Title: </b>" + json.items[i].title + "<br>" + "<b>Subtitle  </b>" + json.items[i].subtitle + "<br>" + "<b>Publisher:  </b>" + json.items[i].publisher + "<br>" + "<br>";
+                }
+
+                $("#BookList2").html(courseHTML2);
             });
         })
     </script>
