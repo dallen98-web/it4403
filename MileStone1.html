@@ -26,7 +26,7 @@
     <script>
         $(document).ready(function () {
             $.getJSON("google-books-book.json", function (json2) {
-                $("#book_id").html("<b>Authors </b>" + json2.volumeInfo.authors + <br></br> + "<b> Title: </b> " + <br></br> + json2.volumeInfo.title + <br></br> + "<b> Publisher </b> " + json2.volumeInfo.publisher);
+                $("#book_id").html("<b>Authors </b>" + json2.volumeInfo.authors + "<br>" + "<b> Title: </b> " + "<br>" + json2.volumeInfo.title + "<br>" + "<b> Publisher </b> " + json2.volumeInfo.publisher);
             });
 
         });
