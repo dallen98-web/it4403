@@ -46,24 +46,6 @@
     <br />
     <hr class="one" />
 
-    <center><h2>Google Books Serach List</h2></center>
-    <hr class="one" />
-
-    <script>
-        $(function () {
-            $.getJSON("google-books-search.json", function (json2) {
-
-                var courseHTML2 = "";
-
-                for (x in json2.items) {
-
-                    courseHTML += "<br>" + "<b>Authors: </b>" + json.items[x].authors + "<br>" + "<b>Title: </b>" + json.items[x].title + "<br>" + "<b>Subtitle  </b>" + json.items[x].subtitle + "<br>" + "<b>Publisher:  </b>" + json.items[x].publisher + "<br>" + "<br>";
-                }
-
-                $("#BookList2").html(courseHTML2);
-            });
-        })
-    </script>
 
 </body>
 </html>
