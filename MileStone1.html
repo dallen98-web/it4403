@@ -55,9 +55,9 @@
 
                 var courseHTML2 = "";
 
-                for (i in json2.items) {
+                for (x in json2.items) {
 
-                    courseHTML += "<br>" + "<b>Authors: </b>" + json.items[i].authors + "<br>" + "<b>Title: </b>" + json.items[i].title + "<br>" + "<b>Subtitle  </b>" + json.items[i].subtitle + "<br>" + "<b>Publisher:  </b>" + json.items[i].publisher + "<br>" + "<br>";
+                    courseHTML += "<br>" + "<b>Authors: </b>" + json.items[x].authors + "<br>" + "<b>Title: </b>" + json.items[x].title + "<br>" + "<b>Subtitle  </b>" + json.items[x].subtitle + "<br>" + "<b>Publisher:  </b>" + json.items[x].publisher + "<br>" + "<br>";
                 }
 
                 $("#BookList2").html(courseHTML2);
