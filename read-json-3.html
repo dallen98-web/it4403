@@ -18,23 +18,16 @@
     <div id="Course"></div>
 
     <script>
-        $(function () {
-
-
-
+        $(document).ready(function () {
             $.getJSON("openlibrary-book.json", function (json2) {
-
-                var courseHTML2 = "";
-
-                for (i in json2.items) {
-
-                    courseHTML += "<br>" + "<b>Authors: </b>" + json2.publishers[i].authors + "<br>" + "<b>Title: </b>" + json2.publishers[i].title + "<br>" + "<b>Subtitle  </b>" + json2.publishers[i].subtitle + "<br>" + "<b>Publisher:  </b>" + json.publishers[i].publisher + "<br>" + "<br>";
-                }
-
-                $("#BookList2").html(courseHTML2);
-            });
+                $("book_id").html(json2.publishers.name + "- " + json2.publishers.title + " - " + json2.title)
+              
         })
     </script>
+
+        <h1>One Book</h1>
+
+        <p id="book_id"></p>
 
 </body>
 </html>
