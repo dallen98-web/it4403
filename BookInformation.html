@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Book Informtion - David Allen</title>
+    <link href="Styles.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var id = "S85NCwAAQBAJ";
+            var service_point = "https://www.googleapis.com/books/v1/volumes/" + id;
+            $.getJSON(service_point, function (json) {
+                var booksHTML = "";
+                var description = json.volumeInfo.description;
+                var title = json.volumeInfo.title;
+                var url = json.volumeInfo.infoLink;
+                var cover = json.volumeInfo.imageLinks.smallThumbnail;
+                var publisher = json.volumeInfo.publisher;
+                var description = json.volumeInfo.description;
+
+
+                $("#cover").attr("src", cover);
+                $("#title").append(title);
+                $("#webpage").text(url).attr("href", url);
+                $("#publisher").append(publisher);
+                $("#description").html(description);
+
+
+
+                var resultHTML = "";
+                for (i in json.volumeInfo.categories) {
+                    resultHTML += json.volumeInfo.categories[i] + ";<br> ";
+
+                }
+                $("#category").html(resultHTML);
+            });
+
+        });
+
+    </script>
+</head>
+
+<body>
+
+    
+
+    <div class="myheader">
+        <br /><br /><br /><h1>Book Information Page </h1>
+        <br /><br />
+    </div>
+
+    <hr class="one" />
+
+    <div class="element"></div>
+    <div class="border">
+        <center><h1 id="title">Book Title: </h1></center>
+        <center><img id="cover" height=250 /></center>
+        <center><p><a id="webpage"></a></p></center>
+        <center><p id="publisher">Publisher: </p> </center>
+        <center><p>Description:</p></center> <br />
+        <center><p id="description"></p></center>
+        <center><p>Book Categories:</p></center>
+        <center><h4 id="category"></h4></center>
+    </div>
+
+
+
+</body>
+</html>

@@ -11,8 +11,10 @@
 </head>
 <body>
 
+    <div class="element"></div>
+
     <div class="myheader">
-        <br /><br /><br /><h1>Module1 </h1>
+        <br /><br /><br /><h1>Module2 </h1>
         <br /><br />
     </div>
 
@@ -32,11 +34,40 @@
         });
     </script>
 
+
+
     <center><p id="book_id"></p></center>
 
     <hr class="one" />
 
     <br />
+
+    <center><h2>Google Search Book List</h2></center>
+
+    <center><div id="BookList2"></div></center>
+
+    <hr class="one" />
+
+    <script>
+        $(function () {
+            $.getJSON("google-books-search.json", function (json2) {
+
+                var courseHTML2 = "";
+
+                for (i in json2.items) {
+
+                    courseHTML += "<br>" + "<b>Author: </b>" + json2.items[i].authors + "<br>" + "<b>Title: </b>" + json2.items[i].title + "<br>" + "<b>SubTitle:  </b>" + json2.items[i].Subtitle + "<br>" + "<b>Publisher:  </b>" + json2.items[i].publisher + "<br>" + "<br>";
+                }
+
+                $("#BookList2").html(courseHTML2);
+            });
+        })
+    </script>
+
+    <br />
+    <hr class="one" />
+
+
     <center><h2>Open Library Book List</h2></center>
 
     <hr class="one" />

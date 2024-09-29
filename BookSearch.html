@@ -1,27 +1,39 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Google Books Search</title>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <meta charset="utf-8" />
+    <title>Google Book Search Page</title>
+    <link href="Styles.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
+    <div class="myheader">
+        <br /><br /><br /><center><h1>Book Search Page</h1></center>
+        <br /><br />
+    </div>
+
+    <hr class="one" />
+
+    <div class="element"></div>
+
     <h1 id="title"></h1>
     <h2>
-        Searched  <span id="total"></span>; Total results: <span id="total"></span>
+        Searched "Stephen King"; Total results: <span id="total"></span>
 
+        <input id="textbox" placeholder="Enter Here:" value="Stephen King" />
+        <button type="Submit">Submit</button>
 
-
-        <p>The results from 30 to 45 are displayed here (15 per page; results page #3).</p>
+        <p>The Top 10 books are displayed here:</p>
     </h2>
-    
     <div id="results" style="display: flex; flex-wrap: wrap;"></div>
-      
+
+
 
     <script>
         $(document).ready(function () {
-            var term = "Jquery"; //or get the value from a textbox user input; you can Google how to do it.
-            var parameter = "?q=" + term + "&startIndex=30&maxResults=15";
+            var term = "Stephen King"
+            var parameter = "?q=" + term + "&startIndex=0&maxResults=10";
             var service_point = "https://www.googleapis.com/books/v1/volumes/" + parameter;
             $.getJSON(service_point, function (json) {
                 console.log(json);
@@ -45,6 +57,7 @@
                 $(".bookdiv").css("width", "300px");
             });
         });
+
     </script>
 
 </body>
