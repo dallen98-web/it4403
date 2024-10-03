@@ -5,21 +5,50 @@ body {
 
 /*This is the color and weight for all h1 tags*/
 h1 {
-    color: black;
+    color: red;
     font-weight: bold;
     text-align: center;
 }
 
-a.linkspace {
-    margin-left: 80px;
-    margin-right: 80px;
-    border: solid;
+input {
     border-radius: 5px;
+    border-color: red;
+    height: 30px;
+    width: 400px;
+    font-size: 15px;
 }
+
+button {
+    border-radius: 5px;
+    border-color: red;
+    height: 30px;
+    width: 150px;
+    font-size: 15px;
+}
+
+
+
+a.linkspace {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: solid;
+    border-color: black;
+    border-radius: 5px;
+    border-block-width: thin;
+    background-color: ButtonShadow
+        
+}
+
+a:hover {
+    color: red;
+}
+
+
 
 /*this is a horizontal line class formated to add to pages*/
 hr.one{
-    border: 1px solid blue;
+    border: 2px solid red;
 }
 
 hr.two {
@@ -38,12 +67,13 @@ table,th,td
 
 {
     display: inline
+       
 
 }
 
 /*This is the class that is used for the header*/
 .myheader {
-    height: 25%;
+    height: 5%;
     
     
 }
@@ -68,8 +98,8 @@ table,th,td
     margin-right: 25%;
     margin-top: 2%;
     height: auto;
-    border-left: 2px solid blue;
-    border-right: 2px solid blue;
+    border-left: 3px solid red;
+    border-right: 3px solid red;
     text-align: center;
 }
 
