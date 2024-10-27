@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Raw JavaScript AJAX</title>
+
+<script type="text/javascript">
+
+    // 1. simplest ajax call in default anonymous function
+    function UpdateDivAjax1() 
+	{
+        xmlHttp = new XMLHttpRequest(); // use the function below GetXmlHttpObject() if you want to deal with earlier version browsers.
+        xmlHttp.onreadystatechange = function () //default anonymous function
+		{
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                document.getElementById('ajaxDiv1').innerHTML = xmlHttp.responseText;
+        };
+        xmlHttp.open("GET", 'server-partial-file.html', true);
+        xmlHttp.send();
+    }
+
+
+    // 2. use a callback function; compare UpdateDivAjax1() and UpdateDivAjax2() 
+    function UpdateDivAjax2() 
+    {
+        xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = UpdateDivCallback; //points to a function instead of an anonymous function
+        xmlHttp.open("GET", 'server-data-html.php?parameter=1000', true); //URL can have parameters
+        xmlHttp.send();
+    }
+    // define a response (callback) handler function
+    function UpdateDivCallback()
+    {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            document.getElementById('ajaxDiv2').innerHTML = xmlHttp.responseText;
+    }
+
+    /* if you want to deal with earlier browsers
+    function GetXmlHttpObject() {
+        var xmlHttp = null;
+        try { 	// IE 7, Firefox, Opera 8.0+, Safari
+            xmlHttp = new XMLHttpRequest();
+        }
+        catch (e) {	// IE 6 or prior
+            try {
+                xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+            }
+            catch (e) {
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        }
+        return xmlHttp;
+    }*/
+
+</script>
+
+</head>
+<body>
+   
+    <h1>1. Raw JavaScript AJAX call</h1>
+    <p>The server side partial page can be viewed here:</p>
+    <ul>
+        <li><a href="server-partial-file.html" target="_blank">server-partial-file.html</a></li>
+        <li><a href="server-data-html.php?parameter=1000" target="_blank">server-data-html.php?parameter=1000</a></li>
+    </ul>
+
+    <h2>1. Use a simple Ajax call function: UpdateDivAjax1()</h2>
+    <input type="button" value="Click me to load some content from the server" 
+            onclick="UpdateDivAjax1()" /><br />
+    <div id="ajaxDiv1"></div>
+	
+	<h2>2. Use a better organized Ajax call function and call with a parameter: UpdateDivAjax2()</h2>
+    <input type="button" value="Click me to load some content from the server" 
+            onclick="UpdateDivAjax2()" /><br />
+    <div id="ajaxDiv2"></div>
+   
+</body>
+</html>

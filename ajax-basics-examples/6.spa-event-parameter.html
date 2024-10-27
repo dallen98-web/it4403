@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Passing Parameter in SPA</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+	<script type="text/javascript">
+	 $(document).ready(function ()
+	 {
+		 $("#btnSearch").click(function ()
+		 {
+			var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchTerm").val();
+			searchBooks(url);
+		 });
+	 });
+
+    function searchBooks(servicePoint)
+    {
+        $("#booklist").html("Searching ..."+"<img src='http://vignette1.wikia.nocookie.net/wikiality/images/7/70/ProgressBar.gif/revision/latest?cb=20070406024457'>");
+        //we can use AJAX here because this service provider allows cross origin request
+        $.getJSON(servicePoint, function (json)
+        {
+            var booksHTML="";
+			for (i in json.items)
+			{
+				
+				booksHTML+="<img class='booklistitem' data-bookid='"+json.items[i].id+ "'";
+				console.log(json.items[i].volumeInfo)
+				booksHTML+="src='"+json.items[i].volumeInfo.imageLinks.smallThumbnail+ "' height='100'>";
+			}
+			$("#booklist").html(booksHTML);
+			
+			//register a click event on every book item
+            $(".booklistitem").on('click', function () 
+			{ 	
+				getBookDetails( $(this).attr("data-bookid") ); // use "this" to refer to the current clicked element or use event target, see the next a few lines for the alternative way
+			});
+			
+			/* you can also try the following code to add click event to the link and use text content to pass parameter
+			
+			var booksHTML2="";
+			for (i in json.Books)
+			{
+				booksHTML2+="<br><a class='booklistitem2' href='#'>"+json.Books[i].ID+"</a>";
+			}
+			$("#booklist").append(booksHTML2);
+			$(".booklistitem2").on('click', function (event) 
+				{ 	getBookDetails( $(event.target).text());  });
+			*/
+        })
+		.fail(function (jqxhr, status, errorMessage)
+		{
+			$("#booklist").html("Status Code: " + status+"<br>Error Message: "+errorMessage);
+		}); // it is necessary to add error handling, try search for "ajax"
+     }
+
+     function getBookDetails(bookid)
+     {
+         $("#bookdetails").html("Working ...");
+         //we can use AJAX here because this service provider allows cross origin request
+         $.getJSON("https://www.googleapis.com/books/v1/volumes/" + bookid, function (json)
+         {
+            $("#bookdetails").html("");
+			var bookHTML = "<h3>"+json.volumeInfo.title+ "</h3>";
+			bookHTML+="<img src='"+json.volumeInfo.imageLinks.smallThumbnail+ "'>";
+			bookHTML+="<p>"+json.volumeInfo.description+ "</p>";
+			bookHTML+="<a href='https://www.googleapis.com/books/v1/volumes/"+bookid+"' target='_blank'>See this book's JSON</a>";
+			$("#bookdetails").html(bookHTML);
+         });
+     }
+</script>
+<style>
+    .booklistitem
+	{
+		cursor: pointer;
+		margin:1px;
+	}
+</style>
+</head>
+
+<body>
+<div id="header">
+	<h1>Book search using Google Books API</h1>
+	<input type="text" id="searchTerm" value="web" />
+	<input type="button" id="btnSearch" value="Search" />
+</div>
+<div id="maincontent">
+	<div id="booklist"></div>
+	<div id="bookdetails" style="width: 50%; padding:10px"></div>
+</div>
+</body>
+</html>

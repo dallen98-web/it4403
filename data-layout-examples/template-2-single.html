@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Mustache Template</title>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.min.js"></script>
+	<script id="booktemplate" type="text/template">
+		<div class='book'>
+			<h2>{{volumeInfo.title}}</h2>
+			<h3>{{volumeInfo.subtitle}}</h3>
+			<img src='{{volumeInfo.imageLinks.smallThumbnail}}' style="float: left"/>
+			<h4>Description</h4>
+				<div>{{volumeInfo.description}}</div>
+			</div>
+		</div>
+	</script>
+	<script type="text/javascript">
+    $(document).ready(function ()
+    {
+        $("#button1").click(function ()
+        {
+            //we can use AJAX here because this service provider allows cross origin request
+			$("#book").html("Searching ...");
+			$.getJSON("https://www.googleapis.com/books/v1/volumes/IYf5nQEACAAJ", function (jsonData)
+			{
+                $("#book").html("");
+				var template = $('#booktemplate').html();
+				var html = Mustache.render(template, jsonData);
+				$("#book").html(html);
+            });
+        });
+    });
+
+</script>
+</head>
+
+<body>
+	<h1>Read JSON content using JavaScript</h1>
+	<input type="button" id="button1" value="Get the Book" />
+	<div id="book"></div>
+</body>
+</html>

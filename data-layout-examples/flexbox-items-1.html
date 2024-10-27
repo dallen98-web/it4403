@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Flow List Layout with Flexbox</title>
+<style>
+#box
+{
+	display: flex; 
+	flex-wrap: wrap;
+	border: 3px solid red;
+	width: 800px;
+}
+.boxitem
+{
+	border: thin solid blue;
+	background-color: #ffeecc;
+	width: 98%;
+	margin: 5px;
+	height:80px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Date Items Layout using CSS Flexbox</h1>
+<p>Flow List</p>
+<div id="box">
+	<script>
+	for (i=0;i<8;i++)
+	{
+		document.write("<div class='boxitem'>data</div>");
+	}
+	</script>
+</div>
+
+</html>

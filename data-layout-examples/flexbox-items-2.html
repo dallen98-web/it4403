@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Grid Layout with Flexbox</title>
+<style>
+#box
+{
+	display: flex; 
+	flex-wrap: wrap;
+	
+	border: 3px solid red;
+	width: 800px;
+	flex-grow:1;
+}
+.boxitem
+{
+	flex-grow:1;
+	
+	border: thin solid blue;
+	background-color: #ffeecc;
+	width: 23%;
+	margin: 5px;
+	height:100px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Date Items Layout using Flexbox</h1>
+<p>Grid View</p>
+<div id="box">
+	<script>
+	for (i=0;i<8;i++)
+	{
+		document.write("<div class='boxitem'>data</div>");
+	}
+	</script>
+</div>
+
+</html>
