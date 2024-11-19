@@ -1,21 +1,49 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
-    <title>Module 3 - David Allen</title>
+    <title>Module 4 - David Allen</title>
     <link href="M4Styles.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="MainScripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.min.js"></script>
+    <script src="M4Scripts.js"></script>
 
+    <script id="booktemplate" type="text/template">
+        {{#items}}
+        <div class='book'>
+            <h4>{{volumeInfo.title}}</h4>
+            <a href="#" onclick="BookInfo()"><img src='{{volumeInfo.imageLinks.smallThumbnail}}' style='float: left' /></a>
+            <div id="BookDiv">
+                <h6> Author: {{volumeInfo.authors}}</h6>
+                <h6> Publisher: {{volumeInfo.publisher}}</h6>
+                <h6> Publish Date: {{volumeInfo.publishedDate}}</h6>
+                <h6> Page Count: {{volumeInfo.pageCount}}</h6>
+            </div>
+        </div>
 
+        {{/items}}
+    </script>
+
+    <script>
+        $(function () {
+            $("#GridView").click(function () {
+                $(".book").css("width", "30%").css("height", "80%");
+                $("#box").attr("display", "Grid");
+            });
+
+            $("#ListView").click(function () {
+                $(".book").css("width", "100%").css("height", "90%");
+                $("#box").attr("display", "List");
+            });
+        });
+    </script>
 
 </head>
-<body style="background-color:rgb(230, 255, 230);">
+
+<body>
 
     <div class="M4header">
 
         <h2>MileStone 4 </h2>
-
 
     </div>
 
@@ -32,19 +60,16 @@
     <br />
     <hr class="one" />
 
-
-    <input id="textbox" type="text" placeholder="Enter Book Search Here:" />
+    <center><input id="textbox" type="text" placeholder="Enter Book Search Here:" /></center>
     <br />
-    <button id="button" type="submit" onclick="BookSearchPg1()">Submit</button>
+    <center><button id="button" type="submit" onclick="BookSearchPg1(), BookInfo();">Submit</button></center>
 
+    <center><h4>Layouts: <a class="menu" href="#" id='ListView'>List View</a> | <a class="menu" href="#" id='GridView'>Grid View</a></h4></center>
 
-    <br />
-    <br />
-    <br />
-    <br />
-
-
-    <div id="results" style="display: flex; flex-wrap: wrap;"></div>
+    <div id="box">
+        <div id="results">
+        </div>
+    </div>
 
     <div id="pages">
 
@@ -54,7 +79,6 @@
         <button class="PgBtn" onclick="BookSearchPg3()">Pg 3</button>
         <button class="PgBtn" onclick="BookSearchPg4()">4</button>
         <button class="PgBtn" onclick="BookSearchPg5()">5</button>
-
 
     </div>
 
@@ -74,6 +98,7 @@
     <br />
     <br />
     <br />
+
     <hr class="one" />
 
 
@@ -93,20 +118,18 @@
                     var bookid = json.items[i].id;
                     var cover = json.items[i].volumeInfo.imageLinks.smallThumbnail;
 
-                    resultHTML += "<div class='bookdiv'>";
+                    resultHTML += "<div class='book'>";
                     resultHTML += "<img src='" + cover + "' style='float: left' />";
                     resultHTML += "<a href='bookinfo.php?id=" + bookid + "'>" + booktitle + "</a>";
                     resultHTML += "</div>";;
                 }
                 $("#BookSresults").html(resultHTML);
-                $(".bookdiv").css("width", "300px");
             });
         });
     </script>
 
-    <div id="BookSresults" style="display: flex; flex-wrap: wrap;"></div>
-
-
-
+    <div id="box">
+        <div id="BookSresults"></div>
+    </div>
 </body>
 </html>
