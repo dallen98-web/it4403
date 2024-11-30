@@ -1,5 +1,6 @@
 ﻿body {
-    background-color: lightblue;
+    /*background-color: #cce6ff;*/
+    background-color: white;
 }
 
 .TermHeader {
@@ -23,7 +24,7 @@ input {
     height: 30px;
     width: 200px;
     font-size: 15px;
-    margin-left: 5%;
+    margin: auto;
 }
 
 button {
@@ -32,5 +33,66 @@ button {
     height: 30px;
     width: 120px;
     font-size: 15px;
-    margin-left: 6.4%;
+    margin:auto;
 }
+
+
+.container {
+    background-color: lightcyan;
+    width: 1400px;
+    height: auto;
+}
+
+#results {
+    display: flex;
+    justify-content: left;
+    float: left;
+    flex-wrap: wrap;
+    margin-inline: auto;
+        
+}
+
+.box {
+    border: solid rgb(0, 89, 134);
+    border-radius: 5%;
+    margin-inline: auto;
+    margin-left: 2px;
+    background-color: white;
+    background-image: linear-gradient(lightskyblue, white);
+    width: 20%;
+    height: 20%;
+}
+.currentbox {
+    float: left;
+    justify-content: left;
+    border: solid rgb(0, 89, 134);
+    border-radius: 5%;
+    background-color: lightskyblue;
+    background-image: linear-gradient(lightskyblue, white);
+    opacity: 5;
+    width: auto;
+    height: auto;
+}
+
+.line {
+    border: 1px solid blue;
+    width: 100%;
+}
+
+.input-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+    .input-wrapper input {
+        padding-right: 30px;
+    }
+
+    .input-wrapper button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }

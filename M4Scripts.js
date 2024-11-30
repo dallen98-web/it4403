@@ -1,5 +1,5 @@
 function BookSearchPg1() {
-    var term = document.getElementById('textbox').value
+    //var term = document.getElementById('textbox').value
             
                     $("#results").html("Displaying Results ...");
                     $.getJSON("https://www.googleapis.com/books/v1/volumes/?q=" + $("#textbox").val() + "&startIndex=0&maxResults=10", function (jsonData) {

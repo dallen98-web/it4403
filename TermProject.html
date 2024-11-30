@@ -5,8 +5,75 @@
     <meta charset="utf-8" />
     <title>TermProject - David Allen</title>
     <link href="TermStyles.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.min.js"></script>
     <script src="TermScripts.js"></script>
+
+    <script>
+    var input = document.getElementById("textbox");
+    input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("Submit").click();
+    }
+    });
+    </script>
+
+
+    <script id="weathertemplate" type="text/template">
+        {{#list}}
+        <div class='box'>
+            {{#weather}}
+            <center><img src="http://openweathermap.org/img/w/{{icon}}.png" height=100 /><h4>{{description}}</h4></center>
+            {{/weather}}
+            <hr />
+            <p>Current City: <b>{{city.name}},{{city.country}}</b></p>
+            <p>Current Date/Time: {{dt_txt}}</p>
+            <p>
+                Temp: <b><span style="color:blue"> {{main.temp_min}}</span></b>&deg;F /
+                <b><span style="color:red"> {{main.temp_max}}</span></b>&deg;F
+            <p>Feels Like: <b>{{main.feels_like}}</b>&deg;F</p>
+
+            </p>
+            <p>Humidity: <b>{{main.humidity}}</b>%</p>
+
+        </div>
+        {{/list}}
+    </script>
+
+    <script id="currentweathertemplate" type="text/template">
+        {{#weather}}
+        <div class="currentbox">
+            <h4>Current Detailed weather Information:</h4>
+            <hr />
+            <center><img src="http://openweathermap.org/img/w/{{icon}}.png" height=100 /><h4>{{description}}</h4></center>
+            <p>Current Temp: <b>{{main.temp}}</b>&deg;F</p>
+            <h4>Feels Like: {{main.feels_like}}&deg;F</h4>
+            <h4>
+                Temp: <span style="color:blue">{{main.temp_min}}</span>&deg;F /
+                <span style="color:red"> {{main.temp_max}}</span>&deg;F
+            </h4>
+            <h4>Humidity: {{main.humidity}}%</h4>
+            <h4>Pressure: {{main.pressure}} hPa</h4>
+            <h4>Pressure at Sea Level: {{main.sea_level}} hPa</h4>
+            <h4>Pressure at Ground Level: {{main.grnd_level}} hPa</h4>
+        </div>
+        {{/weather}}
+    </script>
+    <script>
+        $(function () {
+            $("#GridView").click(function () {
+                $(".box").css("width", "20%").css("height", "20%");
+                $("#box").attr("display", "Grid");
+            });
+
+            $("#ListView").click(function () {
+                $(".box").css("width", "50%").css("height", "20%");
+                $("#box").attr("display", "List");
+            });
+        });
+    </script>
+
 </head>
 <body>
     <div class="TermHeader">
@@ -17,11 +84,40 @@
 
     <br />
     <br />
+    <!--<center>-->
+    <!--<div class="input-wrapper">
+        <input id="textbox" type="text" placeholder="Search City or Zip...">
+        <button id="submit" onclick="WeatherData(); CurrentWeatherData();">
+            &#128269;
+        </button>
+    </div></center>-->
 
 
     <center><input id="textbox" type="text" placeholder="Search City or Zip:" /></center>
     <br />
-    <center><button id="button" type="submit">Submit</button></center>
+    <center><button id="button" type="submit" onclick="WeatherData(); CurrentWeatherData()">Submit</button></center>
+    <center><h4>Layouts: <a class="menu" href="#" id='ListView'>List View</a> | <a class="menu" href="#" id='GridView'>Grid View</a></h4></center>
+
+    <br />
+    <br />
+    <hr class="line" />
+    <div class="container">
+        <div id="results"></div>
+        <div id="currentweather"></div>
+    </div>
+
+    <br />
+    <br />
+    <hr class="line" />
+
+    <iframe width="600"
+            height="450"
+            style="border:0"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyALBXKdkzFQ_TsG5uw9Dxl1aBzrG7644dc&q=Space+Needle,Seattle+WA">
+    </iframe>
 
 </body>
 </html>
