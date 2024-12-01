@@ -55,8 +55,11 @@
             </h4>
             <h4>Humidity: {{main.humidity}}%</h4>
             <h4>Pressure: {{main.pressure}} hPa</h4>
+            <h4>Cloudiness% <b>{{clouds.all}}</b>%</h4>
+            <h4>Precip% <b>{{pop}}</b>%</h4>
             <h4>Pressure at Sea Level: {{main.sea_level}} hPa</h4>
             <h4>Pressure at Ground Level: {{main.grnd_level}} hPa</h4>
+
         </div>
         {{/weather}}
     </script>
@@ -84,20 +87,13 @@
 
     <br />
     <br />
-    <!--<center>-->
-    <!--<div class="input-wrapper">
-        <input id="textbox" type="text" placeholder="Search City or Zip...">
-        <button id="submit" onclick="WeatherData(); CurrentWeatherData();">
-            &#128269;
-        </button>
-    </div></center>-->
-
 
     <center><input id="textbox" type="text" placeholder="Search City or Zip:" /></center>
     <br />
-    <center><button id="button" type="submit" onclick="WeatherData(); CurrentWeatherData()">Submit</button></center>
+    <center><button id="button" type="submit" onclick="WeatherData(); CurrentWeatherData(); loadMap();">Submit</button></center>
     <center><h4>Layouts: <a class="menu" href="#" id='ListView'>List View</a> | <a class="menu" href="#" id='GridView'>Grid View</a></h4></center>
 
+    
     <br />
     <br />
     <hr class="line" />
@@ -106,18 +102,35 @@
         <div id="currentweather"></div>
     </div>
 
+
+
     <br />
     <br />
     <hr class="line" />
 
-    <iframe width="600"
-            height="450"
-            style="border:0"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyALBXKdkzFQ_TsG5uw9Dxl1aBzrG7644dc&q=Space+Needle,Seattle+WA">
-    </iframe>
+    <center><h3>Google Map:</h3></center>
+
+    <center>
+        <div id="mapContainer">
+
+            <iframe id="googleMap" width="1005" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+        </div>
+    </center>
+
+    <script>
+
+        function loadMap() {
+
+            var location = document.getElementById("textbox").value;
+
+            var embedUrl = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAwBYCiLh1KzijtiXsoRzCdgbGN5VTNoNw&q=" + encodeURIComponent(location);
+
+            document.getElementById("googleMap").src = embedUrl;
+
+        }
+
+    </script>
 
 </body>
 </html>
