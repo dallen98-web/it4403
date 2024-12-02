@@ -41,6 +41,7 @@
         {{/list}}
     </script>
 
+
     <script id="currentweathertemplate" type="text/template">
         {{#weather}}
         <div class="currentbox">
@@ -92,7 +93,16 @@
     <br />
     <center><button id="button" type="submit" onclick="WeatherData(); CurrentWeatherData(); loadMap();">Submit</button></center>
     <center><h4>Layouts: <a class="menu" href="#" id='ListView'>List View</a> | <a class="menu" href="#" id='GridView'>Grid View</a></h4></center>
+    <script>
+        var input = document.getElementById("textbox");
+        input.addEventListener("keypress", function () {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("button").click()
 
+            }
+        });
+    </script>
     
     <br />
     <br />
