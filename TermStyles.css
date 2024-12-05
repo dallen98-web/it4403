@@ -1,8 +1,10 @@
-﻿body {
-    /*background-color: #cce6ff;*/
+﻿/*Sets the color of the webpage body*/
+body {
+    
     background-color: white;
 }
 
+/*Sets the size and color of the header*/
 .TermHeader {
     height: 60px;
     background: rgb(0, 89, 134);
@@ -12,17 +14,20 @@
     
 }
 
+/*Sets the color and font type of all h2 tags*/
 h2 {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
 
 }
 
+/*Sets the color and font type of all h3 tags */
 h3 {
     color: rgb(0, 89, 134);
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/*Sets input border style and input size*/
 input {
     border-radius: 50px;
     border-color: rgb(0, 89, 134);
@@ -32,6 +37,7 @@ input {
     margin: auto;
 }
 
+/*Sets the button border style and button size*/
 button {
     border-radius: 50px;
     border-color: rgb(0, 89, 134);
@@ -41,13 +47,14 @@ button {
     margin:auto;
 }
 
-
+/*Creates a Contaner class to put the results of the javascript API in*/
 .container {
     background-color: lightcyan;
     width: 1400px;
     height: auto;
 }
 
+/*Creates an id for results and sets it to flex with flex-wrap*/
 #results {
     display: flex;
     justify-content: left;
@@ -57,6 +64,7 @@ button {
         
 }
 
+/*Creates a box class to place a box around the results and sets the box class border style*/
 .box {
     border: solid rgb(0, 89, 134);
     border-radius: 5%;
@@ -67,6 +75,8 @@ button {
     width: 20%;
     height: 20%;
 }
+
+/*Creates a box class to place a border or box around the current weather API data*/
 .currentbox {
     float: left;
     justify-content: left;
@@ -79,12 +89,13 @@ button {
     height: auto;
 }
 
+/*creates a class to set the horizontal line color and width*/
 .line {
     border: 1px solid blue;
     width: 100%;
 }
 
-.input-wrapper {
+/*.input-wrapper {
     position: relative;
     display: inline-block;
 }
@@ -103,3 +114,4 @@ button {
     }
 
 
+*/

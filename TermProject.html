@@ -9,17 +9,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.min.js"></script>
     <script src="TermScripts.js"></script>
 
-    <script>
-    var input = document.getElementById("textbox");
-    input.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-    event.preventDefault();
-    document.getElementById("Submit").click();
-    }
-    });
-    </script>
-
-
+        
+    <!--Script that uses the Mustache Weather Template to display JSON data from weather API javascript function. -->
     <script id="weathertemplate" type="text/template">
         {{#list}}
         <div class='box'>
@@ -41,7 +32,7 @@
         {{/list}}
     </script>
 
-
+    <!--Script that uses the Mustache Weather Template to display JSON data from weather API CurrentWeather javascript function. -->
     <script id="currentweathertemplate" type="text/template">
         {{#weather}}
         <div class="currentbox">
@@ -64,6 +55,9 @@
         </div>
         {{/weather}}
     </script>
+
+    <!--Script that creates the Grid View and List View functions that alter the box class and id
+        to display the data in a list or grid format. -->
     <script>
         $(function () {
             $("#GridView").click(function () {
@@ -79,20 +73,28 @@
     </script>
 
 </head>
+
 <body>
+    <!--Div to show the Header using the class TermHeader with h2 tag for font inside the header. -->
     <div class="TermHeader">
 
-        <h2>Term Project Weather</h2>
+        <h2>David Allen - Term Project:  Weather and Map information. </h2>
 
     </div>
 
     <br />
     <br />
-
+    <!--input used to take in and store the users data. -->
     <center><input id="textbox" type="text" placeholder="Search City or Zip:" /></center>
     <br />
-    <center><button id="button" type="submit" onclick="WeatherData(); CurrentWeatherData(); loadMap();">Submit</button></center>
+
+    <!--button used to allow the user to submit input if they do not hit enter.-->
+    <center><button id="button" type="submit" onclick="WeatherData(); CurrentWeatherData(); CreateGoogleMap() ;">Submit</button></center>
+
+    <!--A tags using menu class for user to select list view or grid view-->
     <center><h4>Layouts: <a class="menu" href="#" id='ListView'>List View</a> | <a class="menu" href="#" id='GridView'>Grid View</a></h4></center>
+
+    <!--Script to allow for using the Enter key on an Input so no need to use the button-->
     <script>
         var input = document.getElementById("textbox");
         input.addEventListener("keypress", function () {
@@ -103,23 +105,31 @@
             }
         });
     </script>
-    
+
     <br />
     <br />
+
+    <!--Horizontal line using class line-->
     <hr class="line" />
+
+    <!--div that creates a container and then places the results and current weather results inside the container-->
     <div class="container">
         <div id="results"></div>
         <div id="currentweather"></div>
     </div>
 
-
-
     <br />
     <br />
+
+    <!--Horizontal line using class line-->
     <hr class="line" />
 
+    <!--h3 tag that displays the  --Google Map heading-->
     <center><h3>Google Map:</h3></center>
 
+
+    <!--div that contains a container and then takes in the textbox input and places it in an
+        enbed url using the Google MAPs enbed API and API key to load the Map inside an iFrame.-->
     <center>
         <div id="mapContainer">
 
@@ -128,13 +138,15 @@
         </div>
     </center>
 
+    <!--Create Function that takes in the textbox input and places it in an enbed url using the Google MAPs enbed API and API key to
+        place inside the Google Maps URL -->
     <script>
 
-        function loadMap() {
+        function CreateGoogleMap() {
 
-            var location = document.getElementById("textbox").value;
+            var Usrlocation = document.getElementById("textbox").value;
 
-            var embedUrl = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAwBYCiLh1KzijtiXsoRzCdgbGN5VTNoNw&q=" + encodeURIComponent(location);
+            var embedUrl = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAwBYCiLh1KzijtiXsoRzCdgbGN5VTNoNw&q=" + encodeURIComponent(Usrlocation);
 
             document.getElementById("googleMap").src = embedUrl;
 
